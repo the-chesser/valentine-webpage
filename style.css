@@ -1,0 +1,108 @@
+body {
+  margin: auto;
+  height: 100vh;
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 5px 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  height: 250px;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 250px; 
+  width: 40px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50%;
+  z-index: 0;
+  transition: all 1s ease;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  background: black;
+  top: 50px;
+  left: 50%;
+}
+
+.container, h1, button {
+  font-family: 'Dancing Script', cursive;
+}
+
+.buttons {
+  margin-top: 30px;
+  position: relative;
+  height: 100px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 21px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+#yesBtn {
+  background-color: #ff2f68;
+  color: white;
+  margin-right: 120px;
+}
+
+#yesBtn.centered {
+  position: relative;
+  transform: translateX(-50%, -50%);
+  margin: 0;
+  transition: all 1s ease;
+}
+
+#noBtn {
+  background-color: black;
+  color: white;
+  position: absolute;
+  margin-left: -110px;
+  top: 0;
+}
+
+.disappear {
+  transform: translateY(300px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.flyingBalloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  border-radius: 50%;
+  animation: floatUp 2s ease-out forwards;
+}
+
+.flyingBalloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #555;
+  top: 40px;
+  left: 50%;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-300px); opacity: 0; }
+}

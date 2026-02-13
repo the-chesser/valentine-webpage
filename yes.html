@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💝 Happy Valentine’s Day 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Valentine’s Day!<br>💖💖💖💖💖</h1>
+    <br>
+    <h1>I love you ❤️</h1>
+  </div>
+
+  <script>
+    const positions = JSON.parse(localStorage.getItem('balloonPositions')) || [];
+
+    positions.forEach((pos, i) => {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+
+    balloon.style.left = pos.left + 'px';
+    balloon.style.top = pos.bottom + 'px';
+
+    const colors = ['#ff4e78', '#ff7eb9', '#ff85a2', '#ff9ec6',
+                    '#ff4e78', '#ff7eb9', '#ff85a2', '#ff9ec6'];
+    balloon.style.background = colors[i % colors.length];
+
+    document.body.appendChild(balloon);
+
+    balloon.animate([
+      { transform: 'translateY(0)', opacity: 1 },
+      { transform: 'translateY(-300px)', opacity: 0 }
+    ], {
+      duration: 2000,
+      easing: 'ease-out'
+    });
+  
+    setTimeout(() => balloon.remove(), 2000);
+});
+
+    localStorage.removeItem('balloonPositions');
+  </script>
+</body>
+</html>
