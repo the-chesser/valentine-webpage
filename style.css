@@ -55,6 +55,7 @@ button {
   border-radius: 25px;
   cursor: pointer;
   transition: all 1s ease;
+  margin: 5px 0;
 }
 
 #yesBtn {
@@ -105,4 +106,26 @@ button {
 @keyframes floatUp {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-300px); opacity: 0; }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 15px 15px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-left: 30px;
+  }
+
+  .balloon {
+    width: 30px;
+    height: 40px;
+    bottom: 200px;
+  }
+
+  .balloon::after {
+    height: 100px;
+  }
 }
